@@ -29,6 +29,7 @@ class Gateway extends AbstractGateway
         return array(
             'signingKey' => '',
             'refreshToken' => '',
+            'useWebhook' => false,
         );
     }
 
@@ -64,6 +65,23 @@ class Gateway extends AbstractGateway
     public function setRefreshToken($value)
     {
         return $this->setParameter('refreshToken', $value);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getUseWebhook()
+    {
+        return $this->getParameter('useWebhook');
+    }
+
+    /**
+     * @param boolean $value
+     * @return $this
+     */
+    public function setUseWebhook($value)
+    {
+        return $this->setParameter('useWebhook', $value);
     }
 
     /**

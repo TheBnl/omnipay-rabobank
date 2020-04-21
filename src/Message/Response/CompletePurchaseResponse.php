@@ -6,6 +6,11 @@ class CompletePurchaseResponse extends AbstractRabobankResponse
 {
     public function isSuccessful()
     {
+        // Check if we're only using the webhook to validate responses
+        if ($this->request->gateway->getUseWebhook()) {
+            return false;
+        }
+
         return isset($this->data['status']) && $this->data['status'] === 'COMPLETED';
     }
 
